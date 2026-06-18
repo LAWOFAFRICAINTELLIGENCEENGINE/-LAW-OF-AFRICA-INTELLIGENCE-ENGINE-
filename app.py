@@ -72,7 +72,7 @@ if st.session_state.logged_in_user is None:
 current_user = st.session_state.logged_in_user
 is_premium_user = current_user in st.session_state.paid_users
 
-if not is_premium_user and st.session_state.free_queries_used >= 1:
+if not is_premium_user and st.session_state.free_queries_used >= 3:
     st.error(f"🛑 Account Status: Subscription Expired for user [{current_user}]. Premium Access Required.")
     
     st.markdown("### 🌎 Select Your Jurisdiction & Calculate Rate")
