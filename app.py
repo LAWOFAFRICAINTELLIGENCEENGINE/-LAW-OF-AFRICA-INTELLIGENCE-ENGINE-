@@ -29,7 +29,7 @@ def trigger_admin_alert(event_type, target_user):
         msg['To'] = admin_recipient
         msg['Subject'] = f"Law of Africa Alert: {event_type}"
         
-        body_content = f"""
+        body_content = f
         LAW OF AFRICA SYSTEM SECURITY METRICS
         
         An automated security event has just been tracked on your live engine.
