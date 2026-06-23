@@ -5,7 +5,7 @@
 # 1. HARDENED ENTERPRISE CONFIGURATION & SECURE IDENTITY
 # 
 
-st.set_page_config(page_title= "Law of Africa page_icon=", layout=)
+st.set_page_config(page_title= "Law of Africa page_icon=", =)
 
 st.title("Law of Africa: Intelligence Engine")
 st.success("⚡ **Stop spending 10 hours researching OHADA law. Get a comprehensive, highly accurate legal brief in 10 seconds.**")
