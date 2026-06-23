@@ -18,8 +18,8 @@ st.set_page_config(
 # Advanced Layout & Input Elements CSS Styling
 st.markdown("""
     <style>
-    /* Premium Sky Blue Circular Message Send Action Button */
-    div.stButton > button:first-child {
+    /* Premium Sky Blue Circular Message Send Action Button only targets the chat block */
+    [data-testid="stHorizontalBlock"] div.stButton > button {
         background-color: #A0C3FF !important;
         color: #1E293B !important;
         border: none !important;
@@ -37,7 +37,7 @@ st.markdown("""
         margin-top: 0px !important;
     }
     
-    div.stButton > button:first-child:hover {
+    [data-testid="stHorizontalBlock"] div.stButton > button:hover {
         transform: scale(1.05) !important;
         background-color: #B2D2FF !important;
     }
@@ -46,10 +46,27 @@ st.markdown("""
     [data-testid="stHorizontalBlock"] {
         align-items: center !important;
     }
+
+    /* Fixed: Keeps the sidebar buttons looking like clean, distinct text blocks instead of blue circles */
+    section[data-testid="stSidebar"] div.stButton > button {
+        background-color: transparent !important;
+        color: #F8FAFC !important;
+        border: 1px solid #475569 !important;
+        border-radius: 8px !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 8px 16px !important;
+        font-size: 14px !important;
+        box-shadow: none !important;
+    }
+    section[data-testid="stSidebar"] div.stButton > button:hover {
+        background-color: #1E293B !important;
+        border-color: #64748B !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Main Structural Titles - CLEANED: All references to "AI" removed for executive aesthetic
+# Main Structural Titles - 100% AI-Free Text Headers
 st.title("LAW OF AFRICA INTELLIGENCE ENGINE")
 st.write("### Welcome to the Official LAW OF AFRICA INTELLIGENCE ENGINE Portal")
 st.write("#### *Premium Pan-African Legal Research Matrix, OHADA Law Brief Generator, and Constitutional History Index.*")
@@ -61,7 +78,7 @@ with st.expander("🛡️ Data Privacy, Confidentiality & Compliance Framework")
     """)
 st.divider()
 
-# 2. FIXED EMAIL NOTIFICATION ALERTS ENGINE (SMTP ENTERPRISE GATEWAY)
+# 2. EMAIL NOTIFICATION ALERTS ENGINE (SMTP ENTERPRISE GATEWAY)
 def trigger_admin_alert(event_type, target_user):
     try:
         admin_recipient = st.secrets["ADMIN_EMAIL"]
@@ -118,8 +135,8 @@ except Exception:
     st.error("System Status: Security Vault Keys Missing. Please check your system settings.")
     st.stop()
 
-# YOUR WHATSAPP ADMINISTRATIVE LINK ROUTER
-YOUR_WHATSAPP_NUMBER = "234XXXXXXXXXX"  # Change this placeholder to your actual WhatsApp phone number with country code!
+# ADMINISTRATIVE ACCESS CONSTANTS
+YOUR_WHATSAPP_NUMBER = "234XXXXXXXXXX"  # Update with your active WhatsApp contact number
 ADMIN_EMAIL_ADDRESS = st.secrets.get("ADMIN_EMAIL", "paulinusemmanuel634@gmail.com")
 
 # 5. USER SEGMENTATION & ACCESS GATE (WITH REMEMBER SYSTEM)
@@ -195,12 +212,12 @@ st.sidebar.link_button("💬 Chat with Admin via WhatsApp", whatsapp_pay_url)
 st.sidebar.link_button("✉️ Send Support Email", f"mailto:{ADMIN_EMAIL_ADDRESS}?subject=Law%20of%20Africa%20Support%20Request&body=User:%20{current_user}")
 
 st.sidebar.markdown("---")
-if st.sidebar.button("Log Out 🚪", use_container_width=True):
+if st.sidebar.button("Log Out 🚪", key="sidebar_logout_btn", use_container_width=True):
     st.query_params.clear()
     st.session_state.logged_in_user = None
     st.rerun()
 
-if st.sidebar.button("Reset Application Memory 🔄", use_container_width=True):
+if st.sidebar.button("Reset Application Memory 🔄", key="sidebar_reset_btn", use_container_width=True):
     st.query_params.clear()
     st.session_state.clear()
     st.rerun()
