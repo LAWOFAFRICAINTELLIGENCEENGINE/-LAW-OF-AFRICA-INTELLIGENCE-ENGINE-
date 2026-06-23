@@ -5,7 +5,7 @@
 # 1. HARDENED ENTERPRISE CONFIGURATION & SECURE IDENTITY
 # 
 
-st.set_page_config(page_title="Law of Africa", page_icon="⚖️", layout="vertical")
+st.set_page_config(page_title= "Law of Africa page_icon="⚖️", layout="vertical")
 
 st.title("Law of Africa: Intelligence Engine")
 st.success("⚡ **Stop spending 10 hours researching OHADA law. Get a comprehensive, highly accurate legal brief in 10 seconds.**")
@@ -29,7 +29,8 @@ def trigger_admin_alert(event_type, target_user):
         msg['Subject'] = f"⚖️ Law of Africa Alert: {event_type}"
         
         body_content = f
-        LAW OF AFRICA SYSTEM SECURITY METRICS
+         
+         LAW OF AFRICA SYSTEM SECURITY METRICS
         
 
         An automated security event has just been tracked on your live engine.
